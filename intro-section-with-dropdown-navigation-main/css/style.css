@@ -1,0 +1,407 @@
+/*
+- Almost White: hsl(0, 0%, 98%)
+- Medium Gray: hsl(0, 0%, 41%)
+- Almost Black: hsl(0, 0%, 8%)
+*/
+
+body {
+    margin: 25px 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Epilogue', sans-serif;
+    background-color: hsl(0, 0%, 98%);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.logo {
+    width: 100%;
+    padding: 0 15px;
+    height: auto;
+}
+
+
+
+.nav {
+    display: none;
+    color: hsl(0, 0%, 41%);
+    font-size: 14px;
+    background-color: hsl(0, 0%, 98%);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 64%;
+    height: 100vh;
+    z-index: 10;
+}
+
+.close {
+    text-align: right;
+    padding: 24px 24px 6px 24px;
+}
+
+.nav ul li {
+    list-style-type: none;
+    font-size: 16px;
+    /* display: flex; */
+    display: block;
+    align-items: center;
+    line-height: 42px;
+}
+
+.nav ul li img {
+    margin-left: 15px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 80%;
+
+}
+
+.buttons button {
+    background-color: hsl(0, 0%, 98%);
+    padding: 12px 30px;
+    font-size: 14px;
+    color: hsl(0, 0%, 8%)
+}
+
+.login {
+    border: none;
+}
+
+.register {
+    border-radius: 15px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    /* flex-direction: column;
+    align-items: flex-start; */
+    /* position: absolute; */
+    /* font-size: 14px;
+    line-height: 30px; */
+    /* background-color: white; */
+    /* border-radius: 10px; */
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
+}
+
+.dropdown ul {
+    padding: 20px 2px;
+}
+
+.dropdown ul li {
+    text-align: left;
+    /* padding: 0 15px; */
+    list-style-type: none;
+}
+
+.dropdown-content li img {
+    margin-right: 14px;
+}
+
+.dropdown:hover .dropdown-content {
+    /* display: flex; */
+}
+
+.right {
+    width: 150px;
+    right: 5px;
+    top: 36px;
+}
+
+.left {
+    width: 135px;
+    left: -15px;
+    top: 30px;
+}
+
+.burger {
+    padding: 0 15px;
+}
+
+main img {
+    width: 100%;
+}
+
+.content {
+    margin: 40px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 6px 0 3px 0;
+}
+
+.content p {
+    font-weight: 500;
+    line-height: 26px;
+    text-align: center;
+    color: hsl(0, 0%, 41%);
+    margin-bottom: 24px;
+}
+
+.content button {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px;
+    color: hsl(0, 0%, 98%);
+    background-color: hsl(0, 0%, 8%);
+    border: none;
+    border-radius: 13px;
+    padding: 15px 25px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.brands {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.brands img {
+    height: 15px;
+    width: auto;
+}
+
+img.ap {
+    height: 25px;
+}
+
+img.maker {
+    height: 18px;
+}
+
+.flipVisibility {
+    display: block;
+}
+
+@media screen and (min-width: 600px) {
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        box-sizing: border-box;
+        max-width: 1440px;
+        padding: 20px 40px;
+        width: 100%;
+        margin: auto;
+    }
+
+    nav {
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        position: static;
+    }
+
+    .logo {
+        width: auto;
+    }
+
+    .logo img {
+        margin-top: 11px;
+    }
+
+    .menu {
+        display: block;
+        width: 100%;
+    }
+
+    .menu ul {
+        margin-left: 67px;
+    }
+
+    .menu>ul>li {
+        display: inline;
+        margin-right: 35px;
+        padding: 18px 0;
+    }
+
+    .menu ul li img {
+        margin-left: 5px;
+    }
+
+    div.burger,
+    .close {
+        display: none;
+    }
+
+    .nav .buttons {
+        margin-left: auto;
+        color: hsl(0, 0%, 41%);
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    button.login {
+        border: none;
+        background-color: hsl(0, 0%, 98%);
+        color: hsl(0, 0%, 41%);
+        font-size: 15px;
+        width: 100px;
+    }
+
+    button.register {
+        background-color: hsl(0, 0%, 98%);
+        color: hsl(0, 0%, 41%);
+        padding: 11px 24px;
+        font-size: 14px;
+        font-weight: 500;
+        border-color: hsl(0, 0%, 41%);
+        border-radius: 16px;
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-content {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        font-size: 14px;
+        line-height: 30px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    }
+
+    .dropdown ul {
+        padding: 15px 2px;
+    }
+
+    .dropdown ul li {
+        text-align: left;
+        padding: 0 15px;
+        list-style-type: none;
+    }
+
+    .dropdown-content li img {
+        margin-right: 14px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+        z-index: 15;
+    }
+
+    .dropdown-content:hover {
+        display: block;
+        z-index: 15;
+    }
+
+    .right {
+        width: 150px;
+        right: 5px;
+        top: 50px;
+    }
+
+    .left {
+        width: 115px;
+        left: -70px;
+        top: 50px;
+    }
+
+    #menu>li.dropdown.company>ul {
+        padding-left: 12px;
+    }
+
+    li,
+    button {
+        cursor: pointer;
+    }
+
+    main {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin: 80px;
+    }
+
+    .content {
+        display: block;
+        width: 45%;
+        text-align: left;
+        padding-left: 36px;
+        padding-top: 52px;
+    }
+
+    /* .content .line {
+        margin
+    } */
+
+    .content h1 {
+        font-size: 80px;
+        margin: 0;
+        padding-bottom: 47px;
+    }
+
+    .content p {
+        width: 80%;
+        font-size: 18px;
+        text-align: left;
+        margin-left: 0;
+        line-height: 27px;
+        padding-bottom: 29px;
+    }
+
+    .content button {
+        font-size: 18px;
+        padding: 19px 30px;
+    }
+
+    .content .brands {
+        width: 95%;
+        padding-top: 58px;
+        justify-content: space-between;
+    }
+
+    .content .brands img {
+        height: 20px;
+    }
+
+    .content .brands img.ap {
+        height: 35px;
+    }
+
+    .content .brands img.maker {
+        height: 25px;
+    }
+
+    .hero {
+        width: 40%;
+
+    }
+
+
+}
