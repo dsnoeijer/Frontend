@@ -33,6 +33,7 @@ body {
 }
 
 .container {
+    margin-top: -16px;
     background-color: hsl(217, 19%, 24%);
     border-radius: 10px;
     padding: 10px 0 0;
@@ -69,14 +70,27 @@ body {
 
     body {
         width: 100vw;
+        padding: 0;
+        margin: 0;
     }
 
     main {
-        width: 37%;
+        margin-top: 46px;
+        width: 540px;
+    }
+
+    .container {
+        padding: 0;
+        padding: 6px 0 10px;
+        border-radius: 13px;
     }
 
     .title {
-        padding: 40px 0 24px;
+        padding: 41px 0 24px;
+    }
+
+    .title,
+    h1 {
         font-size: 13px;
     }
 
@@ -86,7 +100,11 @@ body {
     }
 
     .divider {
-        padding: 15px 0 68px;
+        padding: 18px 0 56px;
+    }
+
+    .dice button {
+        top: -30px;
     }
 
     .dice button:hover {

@@ -7,7 +7,7 @@ const getQuote = async () => {
     quote = await fetch('https://api.adviceslip.com/advice');
     const gq = (quote.json())
         .then(res => {
-            quoteTitle.innerHTML = `ADVICE #${res.slip.id}`;
+            quoteTitle.innerHTML = `<h1>ADVICE #${res.slip.id}</h1>`;
             quoteContainer.innerHTML = `&ldquo;${res.slip.advice}&rdquo;`;
         });
 }
