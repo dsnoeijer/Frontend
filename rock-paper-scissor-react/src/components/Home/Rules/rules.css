@@ -1,0 +1,43 @@
+.rules {
+    padding: 86px 0 30px;
+}
+
+.rules button {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 10px 35px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+}
+
+.showRules {
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.showRules h1 {
+    padding: 72px 0 88px;
+    color: hsl(229, 25%, 31%);
+}
+
+.showRules button {
+    text-align: center;
+    position: absolute;
+    bottom: 94px;
+    background-color: transparent;
+    border: none;
+}
+
+.toggleVisibility {
+    display: block;
+}
