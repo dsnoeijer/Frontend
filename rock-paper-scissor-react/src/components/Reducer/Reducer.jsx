@@ -8,14 +8,18 @@ export const Reducer = (state, action) => {
             }
         }
         case 'SET_USER_PICK': {
-            console.log(action.payload);
             return {
                 ...state,
                 userPick: action.payload
             }
         }
+        case 'SET_CPU_PICK': {
+            return {
+                ...state,
+                cpuPick: action.payload
+            }
+        }
         default:
-            console.log('DEFAULT');
             return state;
     }
 }

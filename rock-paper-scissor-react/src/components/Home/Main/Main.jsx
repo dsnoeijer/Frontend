@@ -1,3 +1,6 @@
+import { useContext, useEffect } from 'react';
+import { Context } from '../../Store/Store';
+
 import Icon from '../Icon/Icon';
 import { Link } from 'react-router-dom';
 import rock from '../../../assets/img/icon-rock.svg';
@@ -8,6 +11,39 @@ import './main.css';
 
 
 const Main = () => {
+    const [state, dispatch] = useContext(Context);
+
+    useEffect(() => {
+        const options = ['rock', 'paper', 'scissors'];
+        const randomOption = Math.floor(Math.random() * 3);
+        const computer = options[randomOption];
+
+        if (computer === 'rock') {
+            dispatch({
+                type: 'SET_CPU_PICK',
+                payload: {
+                    cpuPick: 'rock',
+                    cpuSymbol: rock
+                }
+            })
+        } else if (computer === 'paper') {
+            dispatch({
+                type: 'SET_CPU_PICK',
+                payload: {
+                    cpuPick: 'paper',
+                    cpuSymbol: paper
+                }
+            })
+        } else {
+            dispatch({
+                type: 'SET_CPU_PICK',
+                payload: {
+                    cpuPick: 'scissors',
+                    cpuSymbol: scissors
+                }
+            })
+        }
+    }, []);
 
     return (
         <div className='icons-div'>

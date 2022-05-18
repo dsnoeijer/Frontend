@@ -3,7 +3,7 @@ import { Context } from '../../Store/Store';
 import './icon.css';
 
 const Icon = ({ pick, symbol, color }) => {
-    const [dispatch] = useContext(Context);
+    const [state, dispatch] = useContext(Context);
     return (
         <div className={`icon-single ${pick}`} >
             <img

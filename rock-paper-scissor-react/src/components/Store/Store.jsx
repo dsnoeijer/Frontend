@@ -5,6 +5,7 @@ import { Reducer } from '../Reducer/Reducer';
 const initialState = {
     score: 0,
     userPick: {},
+    cpuPick: {}
 }
 
 const Store = ({ children }) => {

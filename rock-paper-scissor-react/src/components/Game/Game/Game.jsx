@@ -5,31 +5,16 @@ import TopBar from '../../Home/TopBar/TopBar';
 import Icon from '../../Home/Icon/Icon';
 import Button from '../Button/Button';
 import Rules from '../../Home/Rules/Rules';
-import rock from '../../../assets/img/icon-rock.svg';
-import paper from '../../../assets/img/icon-paper.svg';
-import scissors from '../../../assets/img/icon-scissors.svg';
 import './game.css';
 
 
 const Game = () => {
     const [state, dispatch] = useContext(Context);
-    console.log(state);
     const { pick, symbol } = state.userPick;
+    const { cpuPick, cpuSymbol } = state.cpuPick;
 
 
-    let cpuSymbol = '';
-    const options = ['rock', 'paper', 'scissors'];
-    const randomOption = Math.floor(Math.random() * 3);
-    const computer = options[randomOption];
 
-
-    if (computer === 'rock') {
-        cpuSymbol = rock;
-    } else if (computer === 'paper') {
-        cpuSymbol = paper;
-    } else {
-        cpuSymbol = scissors;
-    }
 
     useEffect(() => {
         const cpuDiv = document.querySelector('.cpu');
@@ -46,21 +31,21 @@ const Game = () => {
             resultText.innerHTML = '';
             let result = '';
             switch (true) {
-                case (pick === computer):
+                case (pick === cpuPick):
                     result += '<p>TIE</p>';
                     break;
-                case (pick === 'scissors' && computer === 'paper'):
-                case (pick === 'paper' && computer === 'rock'):
-                case (pick === 'rock' && computer === 'scissors'):
+                case (pick === 'scissors' && cpuPick === 'paper'):
+                case (pick === 'paper' && cpuPick === 'rock'):
+                case (pick === 'rock' && cpuPick === 'scissors'):
                     result += '<p>YOU WIN</p>';
                     dispatch({
                         type: 'SET_SCORE',
                         payload: state.score + 1
                     })
                     break;
-                case (pick === 'rock' && computer === 'paper'):
-                case (pick === 'scissors' && computer === 'rock'):
-                case (pick === 'paper' && computer === 'scissors'):
+                case (pick === 'rock' && cpuPick === 'paper'):
+                case (pick === 'scissors' && cpuPick === 'rock'):
+                case (pick === 'paper' && cpuPick === 'scissors'):
                     result += '<p>YOU LOSE</p>';
                     dispatch({
                         type: 'SET_SCORE',
@@ -73,7 +58,7 @@ const Game = () => {
             resultText.innerHTML += result;
             resultDiv.style.visibility = 'visible';
         }, 3000);
-    })
+    }, [])
 
     return (
         <div>
@@ -83,7 +68,7 @@ const Game = () => {
                     <Icon symbol={symbol} pick={pick} />
                     <div className="empty-icon">a</div>
                     <div className="cpu">
-                        <Icon symbol={cpuSymbol} pick={computer} />
+                        <Icon symbol={cpuSymbol} pick={cpuPick} />
                     </div>
                 </div>
                 <div className="game-results-text">
