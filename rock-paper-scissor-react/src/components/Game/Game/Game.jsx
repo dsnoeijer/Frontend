@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import React, { useEffect, useContext } from 'react';
+import { Context } from '../../Store/Store';
+import { Link } from 'react-router-dom';
 import TopBar from '../../Home/TopBar/TopBar';
 import Icon from '../../Home/Icon/Icon';
 import Button from '../Button/Button';
@@ -11,23 +12,22 @@ import './game.css';
 
 
 const Game = () => {
-    const [score, setScore] = useState(parseInt(localStorage.getItem('score')));
-    const location = useLocation();
-    const { pick, url, color } = location.state;
-    let cpuSymbol = '', cpuColor = '';
+    const [state, dispatch] = useContext(Context);
+    console.log(state);
+    const { pick, symbol } = state.userPick;
+
+
+    let cpuSymbol = '';
     const options = ['rock', 'paper', 'scissors'];
     const randomOption = Math.floor(Math.random() * 3);
     const computer = options[randomOption];
 
     if (computer === 'rock') {
         cpuSymbol = rock;
-        cpuColor = '#dd4157';
     } else if (computer === 'paper') {
         cpuSymbol = paper;
-        cpuColor = '#5470ed';
     } else {
         cpuSymbol = scissors;
-        cpuColor = '#eda626';
     }
 
     useEffect(() => {
@@ -52,15 +52,19 @@ const Game = () => {
                 case (pick === 'paper' && computer === 'rock'):
                 case (pick === 'rock' && computer === 'scissors'):
                     result += '<p>YOU WIN</p>';
-                    setScore(score + 1);
-                    localStorage.setItem('score', score + 1);
+                    dispatch({
+                        type: 'SET_SCORE',
+                        payload: state.score + 1
+                    })
                     break;
                 case (pick === 'rock' && computer === 'paper'):
                 case (pick === 'scissors' && computer === 'rock'):
                 case (pick === 'paper' && computer === 'scissors'):
                     result += '<p>YOU LOSE</p>';
-                    setScore(score - 1);
-                    localStorage.setItem('score', score - 1);
+                    dispatch({
+                        type: 'SET_SCORE',
+                        payload: state.score - 1
+                    })
                     break;
                 default:
                     return;
@@ -72,20 +76,22 @@ const Game = () => {
 
     return (
         <div>
-            <TopBar score={score} />
-            <div className="game-results">
-                <Icon symbol={url} color={color} />
-                <div className="empty-icon">a</div>
-                <div className="cpu">
-                    <Icon symbol={cpuSymbol} color={cpuColor} />
+            <TopBar />
+            <div className="results">
+                <div className="game-results">
+                    <Icon symbol={symbol} pick={pick} />
+                    <div className="empty-icon">a</div>
+                    <div className="cpu">
+                        <Icon symbol={cpuSymbol} pick={computer} />
+                    </div>
                 </div>
-            </div>
-            <div className="game-results-text">
-                <div className="user-pick">
-                    YOU PICKED
-                </div>
-                <div className="cpu-pick">
-                    THE HOUSE PICKED
+                <div className="game-results-text">
+                    <div className="user-pick">
+                        YOU PICKED
+                    </div>
+                    <div className="cpu-pick">
+                        THE HOUSE PICKED
+                    </div>
                 </div>
             </div>
             <div className="win-lose">

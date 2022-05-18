@@ -5,17 +5,21 @@ import iconClose from '../../../assets/img/icon-close.svg';
 
 const showRules = () => {
     const div = document.querySelector('.showRules');
-    div.classList.add('toggleVisibility');
+    const black = document.querySelector('.black');
+    black.style.display = 'block';
+    div.style.display = 'block';
 }
 
 const closeRules = () => {
     const close = document.querySelector('.showRules');
-    close.classList.remove('toggleVisibility');
+    const black = document.querySelector('.black');
+    black.style.display = 'none';
+    close.style.display = 'none'
 }
 
 const Rules = () => {
     return (
-        <div>
+        <div className="rules-div">
             <div className="rules">
                 <button onClick={showRules}>RULES</button>
             </div>
@@ -28,6 +32,7 @@ const Rules = () => {
                     <img src={iconClose} alt="close" />
                 </button>
             </div>
+            <div className="black"></div>
         </div>
     )
 }

@@ -9,39 +9,20 @@ import './main.css';
 
 const Main = () => {
 
-    if (!localStorage.getItem('score')) {
-        localStorage.setItem('score', 0);
-    }
-
     return (
-        <div>
+        <div className='icons-div'>
             <div className="icons">
                 <div className='bg'>
                     <img className="bg-image" src={bg} alt="triangle background" />
                 </div>
-                <Link to="/game"
-                    state={{
-                        pick: 'paper',
-                        url: paper,
-                        color: '#5470ed'
-                    }}>
-                    <Icon symbol={paper} color={'#5470ed'} />
+                <Link to="/game">
+                    <Icon symbol={paper} pick='paper' />
                 </Link>
-                <Link to="/game"
-                    state={{
-                        pick: 'scissors',
-                        url: scissors,
-                        color: '#eda626'
-                    }}>
-                    <Icon symbol={scissors} color={'#eda626'} pick='scissors' />
+                <Link to="/game">
+                    <Icon symbol={scissors} pick='scissors' />
                 </Link>
-                <Link to="/game"
-                    state={{
-                        pick: 'rock',
-                        url: rock,
-                        color: '#dd4157'
-                    }}>
-                    <Icon symbol={rock} color={'#dd4157'} pick='rock' />
+                <Link to="/game">
+                    <Icon symbol={rock} pick='rock' />
                 </Link>
             </div>
         </div>
