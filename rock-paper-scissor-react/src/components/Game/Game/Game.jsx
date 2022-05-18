@@ -22,6 +22,7 @@ const Game = () => {
     const randomOption = Math.floor(Math.random() * 3);
     const computer = options[randomOption];
 
+
     if (computer === 'rock') {
         cpuSymbol = rock;
     } else if (computer === 'paper') {
@@ -72,7 +73,7 @@ const Game = () => {
             resultText.innerHTML += result;
             resultDiv.style.visibility = 'visible';
         }, 3000);
-    }, [])
+    })
 
     return (
         <div>
